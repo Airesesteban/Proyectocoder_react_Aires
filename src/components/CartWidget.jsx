@@ -1,11 +1,13 @@
 import React from 'react'
-import {Flex} from '@chakra-ui/react'
+import {Box, Flex} from '@chakra-ui/react'
 
 const Cartwidget = () => {
   return (
     <Flex>
-        <img src="src/images/shopping-cart.png" />
-        <p>3</p>
+        <Box m={2} p={2}>
+          <img src="src/images/shopping-cart.png" />
+          <p>3</p>
+        </Box>
     </Flex>
   )
 }

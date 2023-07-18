@@ -6,7 +6,7 @@ import CartWidget from './Cartwidget'
 const  NavBar  = () => {
   return (
     <Flex>
-      <Box p="2" bg="skyblue" color="white"> 
+      <Box p="2" bg="skyblue" color="white" fontSize={24}> 
         La tiendita del Playmobil 
       </Box>
       <Spacer/>
