@@ -1,15 +1,16 @@
 import React from 'react'
-import { Card, CardHeader, CardBody, CardFooter, Heading, Button} from '@chakra-ui/react'
+import { Card, CardBody, CardFooter, Heading, Button, Stack, Divider, ButtonGroup, Text} from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
 const Item = ({nombre,description,id, category}) => {
   return (
     <Card maxW='sm'>
       <CardBody>
-        <Image
+        {/* <Image
           src=''
           alt=''
           borderRadius='lg'
-        />
+        /> */}
         <Stack mt='6' spacing='3'>
           <Heading size='md'>{nombre}</Heading>
           <Text>

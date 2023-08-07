@@ -1,6 +1,6 @@
-import { Center } from '@chakra-ui/react'
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import ItemList from './ItemList'
 import { Center } from '@chakra-ui/react'
 
 const ItemListContainer = () => {
@@ -19,20 +19,22 @@ const ItemListContainer = () => {
   ]
 
   const getDatos = new Promise((resolve, reject) =>  {
-    if (productos.length === 0) {
-        reject(new Error("No hay datos para mostrar"))
-    }
-    setTimeout(() => {
+    if (productos.length > 0) {
+      setTimeout(() => {
         resolve(productos)
     },2000)
+    }else{
+        reject(new Error("No hay datos para mostrar"))
+    }
+   
 })
 
 getDatos
 .then((res) => {
     console.log(res)
 })
-.catch((err) => {
-    console.log(err)
+.catch((error) => {
+    console.log(error)
 })
 
 const filteredProducts = productos.filter((producto)=> producto.category === category)

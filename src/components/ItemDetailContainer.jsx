@@ -15,21 +15,23 @@ const ItemDetailContainer = () => {
         {id:9, nombre: "Barco Carabela de los Soldados de Capa Roja", description: "Contenido: 1 juego de figuras de juguete, 87 piezas con instrucciones: 1 velero, 3 figuras, 83 accesorios.El cañon de a bordo funciona realmente", stock: 1,category: "Piratas" },
         {id:10, nombre: "Cofre de Aventura Pirata", description: "¡Experimenta una nueva aventura pirata! La pared del cofre ofrece varias opciones de juego: puede ser una prisión, un escondite de tesoros o puede usarse como protección. Los atacantes pueden ser defendidos con el cañón que realmente funciona. ", stock: 1,category: "Piratas" }
       ]
-    const getDatos = new Promise((resolve, reject) =>  {
-        if (productos.length === 0) {
-            reject(new Error("No hay datos para mostrar"))
-        }
-        setTimeout(() => {
+      const getDatos = new Promise((resolve, reject) =>  {
+        if (productos.length > 0) {
+          setTimeout(() => {
             resolve(productos)
         },2000)
+        }else{
+            reject(new Error("No hay datos para mostrar"))
+        }
+       
     })
     
     getDatos
     .then((res) => {
         console.log(res)
     })
-    .catch((err) => {
-        console.log(err)
+    .catch((error) => {
+        console.log(error)
     })
   
     return (

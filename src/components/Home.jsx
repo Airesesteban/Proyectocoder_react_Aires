@@ -1,8 +1,9 @@
 import React from 'react'
+import img_home from '../images/Img_home.jpeg'
 
 const Home = () => {
   return (
-    <h1>La Tiendita del Playmobil</h1>
+    <img src={img_home}/>
   )
 }
 

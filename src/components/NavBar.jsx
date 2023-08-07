@@ -20,27 +20,27 @@ const  NavBar  = () => {
           </MenuButton>
           <MenuList>
             <MenuItem>
-              <Link to={`/category/${'granja'}`}>
+              <Link to={`/category/${'Granja'}`}>
                 Granja
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link to={`/category/${'figuras'}`}>
+              <Link to={`/category/${'Figuras'}`}>
                 Figuras
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link to={`/category/${'espacio'}`}>
+              <Link to={`/category/${'Espacio'}`}>
                 Espacio
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link to={`/category/${'piratas'}`}>
+              <Link to={`/category/${'Piratas'}`}>
                 Piratas
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link to={`/category/${'fuerzasEspeciales'}`}>
+              <Link to={`/category/${'Fuerzas Especiales'}`}>
                 Fuerzas especiales
               </Link>
             </MenuItem>

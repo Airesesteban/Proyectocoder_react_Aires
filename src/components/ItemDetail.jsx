@@ -1,7 +1,7 @@
 import React from 'react'
 import {useParams, Link} from 'react-router-dom'
 import { Card,CardHeader,CardBody,CardFooter,Heading,Text,Button, Center,Stack,Image,Divider,ButtonGroup } from '@chakra-ui/react'
-import ItemCount from './ItemCount'
+/* import ItemCount from './ItemCount' */
 
 const ItemDetail = ({productos}) => {
     const {id} = useParams()
@@ -16,11 +16,11 @@ const ItemDetail = ({productos}) => {
                     <Center p="1rem">
                         <Card maxW='sm'>
                             <CardBody>
-                                <Image
+                              {/*   <Image
                                 src=''
                                 alt=''
                                 borderRadius='lg'
-                                />
+                                /> */}
                                 <Stack mt='6' spacing='3'>
                                 <Heading size='md'>{p.nombre}</Heading>
                                 <Text>
