@@ -3,13 +3,14 @@ import {Menu, MenuButton, MenuItem, MenuList, Button, Flex, Box, Spacer} from "@
 import {ChevronDownIcon} from '@chakra-ui/icons'
 import CartWidget from './Cartwidget'
 import { Link } from 'react-router-dom'
+import brand from "../images/logo.webp"
 
 const  NavBar  = () => {
   return (
     <Flex>
-      <Box p="2" bg="skyblue" color="white" fontSize={24}>
+      <Box p="2" bg="skyblue" color="white">
         <Link to={"/"}>
-          La tiendita del Playmobil 
+        <img src={brand} />
         </Link> 
       </Box>
       <Spacer/>

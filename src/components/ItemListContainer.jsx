@@ -44,7 +44,7 @@ return (
         <ItemList 
           productos={filteredProducts}
         />
-    </Center>
+      </Center>
   )
 }
 
