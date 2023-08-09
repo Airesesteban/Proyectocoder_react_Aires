@@ -6,10 +6,15 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import About from './components/About'
 import Cart from './components/Cart'
+import ShoppinCartContext from './context/ShoppingCartContext'
+import ContadorCart from './components/ContadorCart'
 
 const App = () => {
   return (
     <BrowserRouter>
+      {/* <ShoppinCartContext>
+        <ContadorCart />
+    </ShoppinCartContext> */}
       <Navbar/>
       <Routes>
         <Route exact path="/" element={<Home />} />
