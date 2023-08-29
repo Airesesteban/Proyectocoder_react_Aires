@@ -1,6 +1,6 @@
 import ItemDetail from "./ItemDetail";
 import { useState, useEffect } from "react";
-import { getFirestore, collection, getDocs } from "firebase/firestore"; */
+import { getFirestore, collection, getDocs } from "firebase/firestore"
 
 const ItemDetailContainer = () => {
 

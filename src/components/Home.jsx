@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <Center mt="5">
       <img src={img_home}/>
-      <ItemList productos={productos} />
+      {/* <ItemList productos={productos} /> */}
     </Center>
   )
 }

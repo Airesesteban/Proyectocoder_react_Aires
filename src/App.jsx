@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from './components/Navbar'
-import ItemListContainer from './components/ItemListContainer'
+import {ItemListContainer} from './components/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
@@ -14,7 +14,7 @@ const App = () => {
     <BrowserRouter>
       <ShoppinCartContext>
           <Cartwidget />  {/* revisar */}
-          <ItemCount/>    {/* revisar */}
+         {/*  <ItemCount/>    {/* revisar */}
       </ShoppinCartContext>
       <Navbar/>
       <Routes>
