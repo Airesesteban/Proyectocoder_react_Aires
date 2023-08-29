@@ -2,15 +2,15 @@ import React from 'react'
 import { Card, CardBody, CardFooter, Heading, Button, Stack, Divider, ButtonGroup, Text} from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
-const Item = ({nombre,description,id, category}) => {
+const Item = ({nombre,description,id, category,img}) => {
   return (
     <Card maxW='sm'>
       <CardBody>
-        {/* <Image
-          src=''
+        {<Image
+          src={img}
           alt=''
           borderRadius='lg'
-        /> */}
+        />}
         <Stack mt='6' spacing='3'>
           <Heading size='md'>{nombre}</Heading>
           <Text>
@@ -28,9 +28,6 @@ const Item = ({nombre,description,id, category}) => {
             <Link to={`/item/${id}`}>
               Detalles
             </Link>
-          </Button>
-          <Button variant='ghost' colorScheme='blue'>
-            Add to cart
           </Button>
         </ButtonGroup>
       </CardFooter>

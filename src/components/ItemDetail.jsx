@@ -4,7 +4,22 @@ import { Card,CardHeader,CardBody,CardFooter,Heading,Text,Button, Center,Stack,I
 
 const ItemDetail = ({productos}) => {
     const {id} = useParams()
+    const [producto,SetProducto] = useState([])
     
+    useEffect(() => {
+        const db = getFirestore()
+
+        const prodRef = doc(db, "articulos", `${id}`)
+
+        getDoc(prodRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                setProducto(snapshot.data())
+            } else {
+                console.log("No Hay informacion")    
+            }
+        })
+    }, [])
+
     const filteredProducts = productos.filter((producto) => producto.id == id)
 
     return (
@@ -15,11 +30,11 @@ const ItemDetail = ({productos}) => {
                     <Center p="1rem">
                         <Card maxW='sm'>
                             <CardBody>
-                              {/*   <Image
-                                src=''
+                                <Image
+                                src={p.img}
                                 alt=''
                                 borderRadius='lg'
-                                /> */}
+                                />
                                 <Stack mt='6' spacing='3'>
                                 <Heading size='md'>{p.nombre}</Heading>
                                 <Text>
@@ -50,4 +65,4 @@ const ItemDetail = ({productos}) => {
     )
 }
 
-export default ItemDetail
+export default React.memo(ItemDetail)   

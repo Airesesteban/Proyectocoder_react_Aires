@@ -15,4 +15,4 @@ export const ShoppingCartProvider = ({children}) =>{
     )
 }   
 
-export default ShoppingCartProvider
+export default ShoppingCartprovider

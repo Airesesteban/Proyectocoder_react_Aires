@@ -4,7 +4,7 @@ import Item from './Item'
 const ItemList = ({productos}) => {
   return (
     <div>
-        {productos.map((p) => {
+        {productos?.map((p) => {
             return (
                 <Item
                     key={p.id}
@@ -12,6 +12,9 @@ const ItemList = ({productos}) => {
                     nombre={p.nombre}
                     description={p.description}
                     stock={p.stock}
+                    category={p.category}
+                    image={p.img}
+                    price={p.precio}
                 />
             )
             })}
@@ -19,4 +22,4 @@ const ItemList = ({productos}) => {
   )
 }
 
-export default ItemList
+export default React.memo(ItemList)
