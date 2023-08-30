@@ -1,15 +1,17 @@
 import React from 'react'
-import {useParams, Link} from 'react-router-dom'
-import { Card,CardHeader,CardBody,CardFooter,Heading,Text,Button, Center,Stack,Image,Divider,ButtonGroup } from '@chakra-ui/react'
+import {useParams} from 'react-router-dom'
+import {useState, useEffect} from "react"
+import { getFirestore, doc, getDoc} from 'firebase/firestore'
+import { Card,CardBody,CardFooter,Heading,Text,Button, Center,Stack,Image,Divider,ButtonGroup } from '@chakra-ui/react'
 
 const ItemDetail = ({productos}) => {
     const {id} = useParams()
-    const [producto,SetProducto] = useState([])
+    const [_,setProducto] = useState([])
     
     useEffect(() => {
         const db = getFirestore()
 
-        const prodRef = doc(db, "articulos", `${id}`)
+        const prodRef = doc(db, "productos", `${id}`)
 
         getDoc(prodRef).then((snapshot) => {
             if (snapshot.exists()) {

@@ -1,20 +1,24 @@
 import React from 'react'
 import Navbar from './components/Navbar'
-import {ItemListContainer} from './components/ItemListContainer'
+import ItemListContainer from './components/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import About from './components/About'
 import Cart from './components/Cart'
 import ShoppinCartContext from './context/ShoppingCartContext'
-import Cartwidget from './components/Cartwidget'
+import Cartwidget from './components/Cartwidget' 
 
 const App = () => {
   return (
-    <BrowserRouter>
+   <ItemDetailContainer>
+
+   </ItemDetailContainer>
+  )
+    {/* <BrowserRouter>
       <ShoppinCartContext>
-          <Cartwidget />  {/* revisar */}
-         {/*  <ItemCount/>    {/* revisar */}
+          <Cartwidget />  
+          <ItemCount/>    
       </ShoppinCartContext>
       <Navbar/>
       <Routes>
@@ -24,8 +28,8 @@ const App = () => {
         <Route exact path="/category/:category" element={<ItemListContainer />} />
         <Route exact path="/item/:id" element={<ItemDetailContainer/>} />
       </Routes>
-    </BrowserRouter>
-  )
+    </BrowserRouter> */}
+  
 }
 
 export default App
