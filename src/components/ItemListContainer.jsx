@@ -3,7 +3,7 @@ import ItemList from './ItemList'
 import { Center } from '@chakra-ui/react'
 import { useState, useEffect } from 'react'
 import { collection, getDocs, getFirestore } from "firebase/firestore"
-/* import Loading from './components/Loading' */
+import Loading from './Loading'
 
 const ItemListContainer = () => {
 
@@ -18,7 +18,9 @@ const ItemListContainer = () => {
         ...doc.data(),
         id: doc.id,
       }))
-      setProductos(productos)
+      setTimeout(() => {
+        setProductos(productos)
+      }, 1500)
     })
   }, [])
 
@@ -26,10 +28,8 @@ const filteredProducts = productos.filter((producto)=> producto.category === cat
   
 return (
     <Center p="1rem">
-        <ItemList 
-          productos={filteredProducts}
-        />
-      </Center>
+        {productos.length < 1 ? <Loading/> : category ? <ItemList productos={filteredProducts} /> : <ItemList productos={productos} />}
+    </Center>
   )
 }
 

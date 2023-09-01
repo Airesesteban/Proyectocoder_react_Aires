@@ -6,12 +6,17 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addItem = (item, counter) => {
-    const isInCart = cart.find((cart) => cart.item.id === item.id);
-
+    
+    const isInCart = cart?.find((cartItem) => cartItem.item.id === item.id);
     if (isInCart) {
       const newQ = isInCart.counter + counter;
-      const newCart = cart.filter((cart) => cart.item.id !== item.id);
-      setCart([...newCart, { item, counter: newQ }]);
+      if (newQ <= item.stock){
+        const newCart = cart.filter((cartItem) => cartItem.item.id !== item.id);
+        setCart([...newCart, { item, counter: newQ }]);
+      }else{
+        console.log("stock insuficiente")
+      }
+      
     } else {
       setCart([...cart, { item, counter }]);
     }
@@ -43,7 +48,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const itemQuantity = () => {
-    let q = cart.map((item) => item.counter);
+    let q = cart?.map((item) => item.counter ?? 0);
     let result = sumar(q);
     return result;
   };
@@ -55,9 +60,10 @@ export const CartProvider = ({ children }) => {
         removeItem,
         clearCart,
         cart,
+        setCart,
         getSubtotal,
         getTotal,
-        itemQuantity,
+        itemQuantity
       }}
     >
       {children}

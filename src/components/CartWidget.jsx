@@ -6,15 +6,13 @@ import {CartContext} from '../context/ShoppingCartContext'
 
 const Cartwidget = () => {
 
-  const {itemQuantity} = (CartContext)
+  const {itemQuantity} = useContext(CartContext)
   return (
     <Flex>
-      <CartContext>
         <Box m={2} p={2}>
           <img src={cartImage} />
-          <p>{itemQuantity}</p>
+          <p>{itemQuantity()}</p>
         </Box>
-      </CartContext>
     </Flex>
   )
 }

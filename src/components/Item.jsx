@@ -1,13 +1,14 @@
 import React from 'react'
-import { Card, CardBody, CardFooter, Heading, Button, Stack, Divider, ButtonGroup, Text} from '@chakra-ui/react'
+import { Card, CardBody, CardFooter, Heading, Button, Stack, Divider, ButtonGroup, Text, Image} from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
+import default_image from '../images/logo.webp'
 
-const Item = ({nombre,description,id, category,img}) => {
+const Item = ({ nombre, description, id, category, image}) => {
   return (
     <Card maxW='sm'>
       <CardBody>
         {<Image
-          src={img}
+          src={image ? image : default_image}
           alt=''
           borderRadius='lg'
         />}

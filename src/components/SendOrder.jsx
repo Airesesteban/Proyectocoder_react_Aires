@@ -1,10 +1,15 @@
+import { Button } from "@chakra-ui/react"
+import { Link } from "react-router-dom"
 import {collection, addDoc, getFirestore} from "firebase/firestore"
-import {useState} from "react"
+import {useState, useContext} from "react"
+import { CartContext } from "../context/ShoppingCartContext"
+
 
 const SendOrder = () => {
     const [name, setName] = useState("")
-    const {email, setEmail} = useState("")
-    const [orderId, setOrderId] = useState("null")
+    const [email, setEmail] = useState("")
+    const [orderId, setOrderId] = useState(null)
+    const {cart} = useContext(CartContext)
 
     const db = getFirestore()
 
@@ -16,24 +21,38 @@ const SendOrder = () => {
 
     const order = {
         name,
-        email
+        email,
+        date:   new Date(),
+        cart
     }
 
-    const ordersColecction = collection(db. "orden")
+    const ordersCollection = collection(db, "orden")
 
   return (
     <div>
         <h1>Enviando orden</h1>
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder=" Nombre Y Apellido" 
-            onChange={(e) => setName(e.target.value)}
-            />
-            <input type="text" placeholder=" Email" 
-            onChange={(e) => setEmail(e.target.value)}
-            />
-            <button type="submit">Enviar Información</button>
+            <fieldset disabled= {orderId}>
+                <input type="text" placeholder=" Nombre Y Apellido" 
+                onChange={(e) => setName(e.target.value)}
+                />
+                <input type="text" placeholder=" Email" 
+                onChange={(e) => setEmail(e.target.value)}
+                />
+                <button type="submit">Enviar Información</button>
+            </fieldset>
         </form>
-        <p>Su numero de orden es: {orderId}</p>
+        { orderId &&
+        <>   
+            <p>Su numero de orden es: {orderId}</p>
+            <p>Muchas gracias por su compra!</p>
+            <Button variant='solid' colorScheme='blue'>
+                <Link to="/">
+                    Seguir comprando
+                </Link>
+            </Button>
+        </> 
+        }
     </div>
   )
 }
