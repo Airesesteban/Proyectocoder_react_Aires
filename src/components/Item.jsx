@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardBody, CardFooter, Heading, Button, Stack, Divider, ButtonGroup, Text, Image} from '@chakra-ui/react'
+import { Card, CardBody, CardFooter, Heading, Button, Stack, Divider, ButtonGroup, Text, Image } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import default_image from '../images/logo.webp'
 
@@ -22,7 +22,7 @@ const Item = ({ nombre, description, id, category, image}) => {
           </Text>
         </Stack>
       </CardBody>
-      <Divider />
+      <Divider color='#65D9DB'/>
       <CardFooter>
         <ButtonGroup spacing='2'>
           <Button variant='solid' colorScheme='blue'>

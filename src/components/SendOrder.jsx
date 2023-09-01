@@ -1,8 +1,8 @@
-import { Button } from "@chakra-ui/react"
-import { Link } from "react-router-dom"
-import {collection, addDoc, getFirestore} from "firebase/firestore"
-import {useState, useContext} from "react"
-import { CartContext } from "../context/ShoppingCartContext"
+import { Button } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
+import {collection, addDoc, getFirestore} from 'firebase/firestore'
+import {useState, useContext} from 'react'
+import { CartContext } from '../context/ShoppingCartContext'
 
 
 const SendOrder = () => {

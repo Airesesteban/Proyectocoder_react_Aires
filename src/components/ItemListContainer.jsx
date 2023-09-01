@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom'
 import ItemList from './ItemList'
-import { Center } from '@chakra-ui/react'
+import { Center} from '@chakra-ui/react'
 import { useState, useEffect } from 'react'
-import { collection, getDocs, getFirestore } from "firebase/firestore"
+import { collection, getDocs, getFirestore } from 'firebase/firestore'
 import Loading from './Loading'
 
 const ItemListContainer = () => {
@@ -20,7 +20,7 @@ const ItemListContainer = () => {
       }))
       setTimeout(() => {
         setProductos(productos)
-      }, 1500)
+      }, 1000)
     })
   }, [])
 

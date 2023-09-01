@@ -1,7 +1,7 @@
-import { useContext, useState } from "react"
-import { ButtonGroup,IconButton,Tooltip,Center,Button } from "@chakra-ui/react"
-import { AddIcon, MinusIcon } from "@chakra-ui/icons"
-import { CartContext } from "../context/ShoppingCartContext"
+import { useContext, useState } from 'react'
+import { ButtonGroup,IconButton,Tooltip,Center,Button } from '@chakra-ui/react'
+import { AddIcon, MinusIcon } from '@chakra-ui/icons'
+import { CartContext } from '../context/ShoppingCartContext'
 
 const ItemCount = ({stock, id, price, name, image}) => {
   const [contador, setContador]= useState(1)

@@ -1,10 +1,10 @@
-import React, { useContext } from "react"
-import { Link } from "react-router-dom"
-import { Container } from "react-bootstrap"
-import { CartContext } from "../context/ShoppingCartContext"
-import  ItemCount  from "./ItemCount"
-import "./Cart.css"
-import { Button } from "@chakra-ui/react"
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
+import { CartContext } from '../context/ShoppingCartContext'
+import  ItemCount  from './ItemCount'
+import './Cart.css'
+import { Button, Center } from '@chakra-ui/react'
 
 export const Cart = () => {
   const { cart, removeItem, clearCart, getSubtotal, getTotal } = useContext(CartContext)
@@ -55,11 +55,13 @@ export const Cart = () => {
             </div>
           </Container>
         ))}
+        <Center>
         <Button variant='solid' colorScheme='blue'>
                 <Link to="/">
                     Seguir comprando
                 </Link>
             </Button>
+        </Center>
       {cart.length !== 0 && (
         <Container className="cart__footer">
           <button className="btn" onClick={clearCart}>
