@@ -1,13 +1,14 @@
 /* CART HEADER */
 .cart__header {
     padding: 0.5rem;
-    background-color: rgba(209, 209, 209, 0.521);
+    background-color: #63CAF270;
     width: 100%;
     height: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 0.5rem;
+
   }
   .cart__header--info {
     width: 40%;
@@ -27,7 +28,7 @@
   
   .card__cart {
     padding: 0.5rem;
-    background-color: rgba(209, 209, 209, 0.521);
+    background-color: #63CAF270;
     width: 100%;
     height: auto;
     display: flex;
@@ -40,7 +41,6 @@
     display: flex;
     width: 40%;
     flex-direction: row;
-    border: solid 0.5px white;
     border-radius: 10px;
     justify-content: space-around;
   }
@@ -118,3 +118,4 @@
     font-size: 1.5rem;
     color: #012e67;
   }
+

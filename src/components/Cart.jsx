@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import { CartContext } from '../context/ShoppingCartContext'
-import  ItemCount  from './ItemCount'
 import './Cart.css'
 import { Button, Center } from '@chakra-ui/react'
 
@@ -10,7 +9,6 @@ export const Cart = () => {
   const { cart, removeItem, clearCart, getSubtotal, getTotal } = useContext(CartContext)
   return (
     <Container className="main">
-      <h1>Carrito</h1>
       {cart.length === 0 && (
         <h3>
           Su carrito está vacio. Visite nuestros{" "}
@@ -21,7 +19,6 @@ export const Cart = () => {
         <Container className="cart__header">
           <div className="cart__header--info">Detalle</div>
           <div className="cart__header--actions">
-            {/* <div>Añadir</div> */}
             <div>Cantidad</div>
             <div>Precio</div>
             <div>Subtotal</div>
@@ -42,7 +39,6 @@ export const Cart = () => {
               </div>
             </div>
             <div className="card__cart--actions">
-              {/* <ItemCount id={item.id} price={item.price} stock={item.stock} image={item.image} name={item.name}/> */}
               <div className="price">{counter}</div>
               <div className="price">${item.price}</div>
               <div className="price">${getSubtotal(counter, item.price)}</div>
@@ -55,8 +51,9 @@ export const Cart = () => {
             </div>
           </Container>
         ))}
+        <Center fontSize={"2rem"} >Total ${getTotal()}</Center>
         <Center>
-        <Button variant='solid' colorScheme='blue'>
+        <Button variant='ghost' colorScheme='blue'>
                 <Link to="/">
                     Seguir comprando
                 </Link>
@@ -64,13 +61,15 @@ export const Cart = () => {
         </Center>
       {cart.length !== 0 && (
         <Container className="cart__footer">
-          <button className="btn" onClick={clearCart}>
+          <Button colorScheme='red' onClick={clearCart}>
             Vaciar carrito
-          </button>
-          <div>Total ${getTotal()}</div>
-          <Link className="btn" to="/checkout">
-            Finalizar compra
-          </Link>
+          </Button>
+          
+          <Button colorScheme='teal'>
+            <Link className="btn" to="/checkout">
+              Finalizar compra
+            </Link>
+          </Button>
         </Container>
       )}
     </Container>

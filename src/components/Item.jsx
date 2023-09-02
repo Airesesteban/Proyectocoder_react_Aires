@@ -5,17 +5,19 @@ import default_image from '../images/logo.webp'
 
 const Item = ({ nombre, description, id, category, image}) => {
   return (
-    <Card maxW='sm'>
+    <Card maxW='sm' h='100%'>
       <CardBody>
         {<Image
           src={image ? image : default_image}
           alt=''
           borderRadius='lg'
+          objectFit='fill'
+          height={"325px"}
         />}
         <Stack mt='6' spacing='3'>
           <Heading size='md'>{nombre}</Heading>
           <Text>
-            {description}
+            {description.length <= 144 ? description : description.substring(0, 144).concat(" ...")}
           </Text>
           <Text color='blue.600' fontSize='2xl'>
             {category}

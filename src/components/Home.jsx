@@ -12,9 +12,7 @@ const Home = () => {
       <Center mt="5">
         <img src={img_home}/>
       </Center>
-      <Flex>
         <ItemListContainer/> 
-      </Flex>
     </Box>
   )
 }
