@@ -19,4 +19,4 @@ En este proyecto para el curso de ReactJS creamos varios componentes con el obje
 
 ## GIF
 GIF de demostración del proceso de compra de la app.
-![](TPfinal.gif)
+![](https://github.com/Airesesteban/Proyectocoder_react_Aires/blob/main/src/Images/TPfinal.gif)
