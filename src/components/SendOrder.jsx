@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react'
+import { Button, Center } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import {collection, addDoc, getFirestore} from 'firebase/firestore'
 import {useState, useContext} from 'react'
@@ -29,8 +29,11 @@ const SendOrder = () => {
     const ordersCollection = collection(db, "orden")
 
   return (
-    <div>
-        <h1>Enviando orden</h1>
+    <>
+    <Center fontSize="2rem" m={4}>
+        <h2>Enviando orden</h2>
+    </Center>
+    <Center>
         <form onSubmit={handleSubmit}>
             <fieldset disabled= {orderId}>
                 <input type="text" placeholder=" Nombre Y Apellido" 
@@ -53,8 +56,10 @@ const SendOrder = () => {
             </Button>
         </> 
         }
-    </div>
+        </Center>
+    </>
   )
+  
 }
 
 export default SendOrder

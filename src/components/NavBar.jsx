@@ -8,6 +8,7 @@ import brand from '../images/logo.webp'
 const  NavBar  = () => {
   return (
     <Flex borderBottom = '4px' borderColor = 'black' bgColor = '#63CAF2'>
+      <h1 style={{display:"none"}}>La tiendita del Playmobil</h1>
       <Box p="2" bg="skyblue" color="white">
         <Link to={"/"}>
         <img src={brand} />

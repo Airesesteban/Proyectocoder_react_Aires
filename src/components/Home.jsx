@@ -6,10 +6,10 @@ import ItemListContainer from './ItemListContainer'
 const Home = () => {
   return (
     <Box>
-      <Center mt={4}>
+      <Center mt={4}fontSize={"3rem"}>
         Bienvenidos a la tiendita del Playmobil
       </Center>
-      <Center mt="5">
+      <Center mt="5" mb="8">
         <img src={img_home}/>
       </Center>
         <ItemListContainer/> 

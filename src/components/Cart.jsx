@@ -3,17 +3,19 @@ import { Link } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import { CartContext } from '../context/ShoppingCartContext'
 import './Cart.css'
-import { Button, Center } from '@chakra-ui/react'
+import { Button, Center, Box } from '@chakra-ui/react'
 
 export const Cart = () => {
   const { cart, removeItem, clearCart, getSubtotal, getTotal } = useContext(CartContext)
   return (
-    <Container className="main">
+    <Box mt={3}>
+    <Container className="main" >
       {cart.length === 0 && (
-        <h3>
-          Su carrito está vacio. Visite nuestros{" "}
-          <Link to="productos/all">productos</Link>{" "}
-        </h3>
+        <Center mb={2} fontSize={"2rem"}>
+          <h3>
+            Su carrito está vacio. Visite nuestros productos
+          </h3>
+        </Center>
       )}
       {cart.length !== 0 && (
         <Container className="cart__header">
@@ -53,7 +55,7 @@ export const Cart = () => {
         ))}
         <Center fontSize={"2rem"} >Total ${getTotal()}</Center>
         <Center>
-        <Button variant='ghost' colorScheme='blue'>
+        <Button variant={cart.length === 0 ? 'solid' : 'ghost'} colorScheme='blue'mt={4}>
                 <Link to="/">
                     Seguir comprando
                 </Link>
@@ -73,6 +75,7 @@ export const Cart = () => {
         </Container>
       )}
     </Container>
+    </Box>
   );
 };
 export default Cart
