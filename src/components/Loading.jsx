@@ -1,9 +1,13 @@
 import React from 'react'
-import { Spinner } from '@chakra-ui/react'
+import { Spinner, Center, Box } from '@chakra-ui/react'
 
 const Loading = () => {
   return (
-    <div><Spinner /></div>
+    <Box>
+      <Center>
+        <Spinner />
+      </Center>
+    </Box>
   )
 }
 

@@ -1,16 +1,13 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { Container } from "react-bootstrap";
-import { CartContext } from "../context/ShoppingCartContext";
-import  ItemCount  from "./ItemCount";
-import "./Cart.css";
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
+import { CartContext } from '../context/ShoppingCartContext'
+import  ItemCount  from './ItemCount'
+import './Cart.css'
+import { Button, Center } from '@chakra-ui/react'
 
 export const Cart = () => {
-  const { cart } = useContext(ShoppingCartContext);
-  
-  const { removeItem, clearCart, getSubtotal, getTotal} =
-    useContext(ShoppingCartContextt);
-
+  const { cart, removeItem, clearCart, getSubtotal, getTotal } = useContext(CartContext)
   return (
     <Container className="main">
       <h1>Carrito</h1>
@@ -24,7 +21,7 @@ export const Cart = () => {
         <Container className="cart__header">
           <div className="cart__header--info">Detalle</div>
           <div className="cart__header--actions">
-            <div>Añadir</div>
+            {/* <div>Añadir</div> */}
             <div>Cantidad</div>
             <div>Precio</div>
             <div>Subtotal</div>
@@ -37,15 +34,15 @@ export const Cart = () => {
           <Container className="card__cart" id={item.id} key={item.id}>
             <div className="card__cart--info">
               <div className="card__cart--img">
-                <img src={item.img} alt="Foto de producto" />
+                <img src={item.image} alt="Foto de producto" />
               </div>
               <div className="card_product--title_principal">
-                <h3 className="card__cart--title">{item.nombre}</h3>
+                <h3 className="card__cart--title">{item.name}</h3>
                 <p className="card__cart--desc">{item.description}</p>
               </div>
             </div>
             <div className="card__cart--actions">
-              <ItemCount item={item} />
+              {/* <ItemCount id={item.id} price={item.price} stock={item.stock} image={item.image} name={item.name}/> */}
               <div className="price">{counter}</div>
               <div className="price">${item.price}</div>
               <div className="price">${getSubtotal(counter, item.price)}</div>
@@ -58,6 +55,13 @@ export const Cart = () => {
             </div>
           </Container>
         ))}
+        <Center>
+        <Button variant='solid' colorScheme='blue'>
+                <Link to="/">
+                    Seguir comprando
+                </Link>
+            </Button>
+        </Center>
       {cart.length !== 0 && (
         <Container className="cart__footer">
           <button className="btn" onClick={clearCart}>

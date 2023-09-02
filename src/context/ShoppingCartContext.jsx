@@ -1,50 +1,55 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext } from 'react'
 
-export const CartContext = createContext();
+export const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([])
 
   const addItem = (item, counter) => {
-    const isInCart = cart.find((cart) => cart.item.id === item.id);
-
+    
+    const isInCart = cart?.find((cartItem) => cartItem.item.id === item.id)
     if (isInCart) {
-      const newQ = isInCart.counter + counter;
-      const newCart = cart.filter((cart) => cart.item.id !== item.id);
-      setCart([...newCart, { item, counter: newQ }]);
+      const newQ = isInCart.counter + counter
+      if (newQ <= item.stock){
+        const newCart = cart.filter((cartItem) => cartItem.item.id !== item.id)
+        setCart([...newCart, { item, counter: newQ }])
+      }else{
+        console.log("stock insuficiente")
+      }
+      
     } else {
-      setCart([...cart, { item, counter }]);
+      setCart([...cart, { item, counter }])
     }
   };
 
   const removeItem = (id) => {
-    const newItem = cart.filter(({ item }) => item.id !== id);
-    setCart(newItem);
+    const newItem = cart.filter(({ item }) => item.id !== id)
+    setCart(newItem)
   };
 
-  const clearCart = () => setCart([]);
+  const clearCart = () => setCart([])
 
   const getSubtotal = (counter, price) => {
-    let result = counter * price;
-    return result;
+    let result = counter * price
+    return result
   };
 
   function sumar(lista) {
     let resultado = 0;
     for (let i = 0; i < lista.length; i++) {
-      resultado += lista[i];
+      resultado += lista[i]
     }
-    return resultado;
+    return resultado
   }
 
   const getTotal = () => {
-    let subtotales = cart.map((item) => item.counter * item.item.price);
-    return sumar(subtotales);
+    let subtotales = cart.map((item) => item.counter * item.item.price)
+    return sumar(subtotales)
   };
 
   const itemQuantity = () => {
-    let q = cart.map((item) => item.counter);
-    let result = sumar(q);
+    let q = cart?.map((item) => item.counter ?? 0);
+    let result = sumar(q)
     return result;
   };
 
@@ -55,33 +60,13 @@ export const CartProvider = ({ children }) => {
         removeItem,
         clearCart,
         cart,
+        setCart,
         getSubtotal,
         getTotal,
-        itemQuantity,
+        itemQuantity
       }}
     >
       {children}
     </CartContext.Provider>
-  );
-};
-
-
-
-/* import{createContext, useState} from 'react' 
-
-export const CartContext = createContext()
-
-export const ShoppingCartContext = ({children}) =>{
-
-    const [cart, setCart] =useState([])
-
-    const itemQuantity = cart.length
-
-    return(
-        <CartContext.Provider value={{cart, setCart, itemQuantity}}>
-            {children}
-        </CartContext.Provider>
-    )
-}   
-
-export default ShoppingCartContext */
+  )
+}

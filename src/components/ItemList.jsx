@@ -22,4 +22,4 @@ const ItemList = ({productos}) => {
   )
 }
 
-export default React.memo(ItemList)
+export default ItemList

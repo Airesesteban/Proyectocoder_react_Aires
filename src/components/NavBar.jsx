@@ -1,19 +1,20 @@
 import React from 'react'
-import {Menu, MenuButton, MenuItem, MenuList, Button, Flex, Box, Spacer} from "@chakra-ui/react"
+import {Menu, MenuButton, MenuItem, MenuList, Button, Flex, Box, Spacer, Center} from "@chakra-ui/react"
 import {ChevronDownIcon} from '@chakra-ui/icons'
-import CartWidget from './Cartwidget'
+import CartWidget from './CartWidget'
 import { Link } from 'react-router-dom'
-import brand from "../images/logo.webp"
+import brand from '../images/logo.webp'
 
 const  NavBar  = () => {
   return (
-    <Flex>
+    <Flex borderBottom = '4px' borderColor = 'black' bgColor = '#63CAF2'>
       <Box p="2" bg="skyblue" color="white">
         <Link to={"/"}>
         <img src={brand} />
         </Link> 
       </Box>
       <Spacer/>
+      <Center>
       <Box p="3">
         <Menu>
           <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
@@ -48,11 +49,15 @@ const  NavBar  = () => {
           </MenuList>
         </Menu>
       </Box>
-      <Box>
+      </Center>
+      <Spacer/>
+      <Center>
+      <Box mr={2}>
         <Link to={"/cart"}>
           <CartWidget />
         </Link>
       </Box>
+      </Center>
     </Flex>
   )
 }
